@@ -5,11 +5,12 @@ import cookieParser from "cookie-parser";
 import { connectDB } from "./lib/db.js";
 import authRoutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js"
+console.log("RAW process.env.PORT =", process.env.PORT);
 
 console.log("✅ CORRECT index.js FILE LOADED");
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT;
+const PORT = Number(process.env.PORT )|| 5000;
 
 app.use(express.json());
 app.use(cookieParser());

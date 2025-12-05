@@ -40,7 +40,7 @@ export const signup = async (req, res) => {
         generateTokens(newUser._id, res);
 
         return res.status(201).json({
-            success: false,
+            success: true,
             message:"Signup Successfully",
             user: {
                 id: newUser._id,

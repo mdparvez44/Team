@@ -36,6 +36,8 @@ export const signup = async (req, res) => {
             password:hashPassword
         });
 
+        await newUser.save();
+
         // Generate JWT Tokens
         generateTokens(newUser._id, res);
 
@@ -169,8 +171,8 @@ export const checkAuth = (req, res)=>{
     try {
         return res.status(200).json({
             success: true,
-            user: req.User
-        })
+            user: req.user
+        });
     } catch (error) {
         console.error("Error in Auth", error)
         res.status(500).json({

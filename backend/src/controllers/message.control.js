@@ -28,7 +28,7 @@ export const getMessage = async (req, res)=>{
         }).sort({createdAt: 1})
 
         return res.status(200).json({
-            sucess: true,
+            success: true,
             count: messages.length,
             data: messages
         });
@@ -56,7 +56,7 @@ export const sendMessage = async (req, res)=>{
 
         let imageUrl;
         if(image){
-            const uploadResponse = await cloudinary.uploder.upload(image,{
+            const uploadResponse = await cloudinary.uploader.upload(image,{
                 folder:"chat_images"
             });
             imageUrl = uploadResponse.secure_url;
